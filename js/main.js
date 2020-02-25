@@ -18,9 +18,26 @@
     con difficoltà 2=> tra 1 e 50
 
 */
+
+var numOfLocations = null;
+var levelOfGame = parseInt(prompt("Scegli 0 per difficoltà BASSA | 1 per difficoltà MEDIA | 2 per difficoltà ALTA"));
+
+switch (levelOfGame) {
+    case 0:
+        numOfLocations = 100;
+        break;
+    case 1:
+        numOfLocations = 80;
+        break;
+    case 2:
+        numOfLocations = 50;
+        break;
+    default:
+        numOfLocations = 100;
+}
+
 var mineLocations = [];
 var numOfMines = 16;
-var numOfLocations = 100;
 var numOfNotMines = numOfLocations - numOfMines;
 
 while (mineLocations.length <= numOfMines) {
@@ -39,7 +56,7 @@ while (userAttemps.length <= numOfNotMines) {
     var userAttemp = parseInt(prompt("Inserisci un numero da 1 a 100"));
     console.log(userAttemp);
 
-    if ((!isNaN(userAttemp)) && (userAttemp <= 100) && (userAttemp >= 1)) {
+    if ((!isNaN(userAttemp)) && (userAttemp <= numOfLocations) && (userAttemp >= 1)) {
 
         if (!userAttemps.includes(userAttemp) && !mineLocations.includes(userAttemp)) {
             userAttemps.push(userAttemp);
