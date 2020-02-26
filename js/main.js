@@ -63,7 +63,7 @@ while (userAttemps.length <= numOfNotMines) {
             console.log(userAttemps);
         } else if (mineLocations.includes(userAttemp)) {
             document.getElementById('bomb').play();
-            alert("boom!");
+            alert("boom! Hai fatto " + userAttemps.length + "tentativi.");
             break
         } else if (userAttemps.length == numOfNotMines) {
             alert("Win!");
