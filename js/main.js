@@ -51,8 +51,8 @@ while (mineLocations.length < numOfMines) {
 console.log(mineLocations.sort(function(a, b){return a-b}));
 
 var userAttemps = [];
-
-while (userAttemps.length <= numOfNotMines) {
+var boom = false; // sentinel variable
+while (userAttemps.length < numOfNotMines && (boom === false)) {
     var userAttemp = parseInt(prompt("Inserisci un numero da 1 a 100"));
     console.log(userAttemp);
 
@@ -61,18 +61,16 @@ while (userAttemps.length <= numOfNotMines) {
         if (!userAttemps.includes(userAttemp) && !mineLocations.includes(userAttemp)) {
             userAttemps.push(userAttemp);
             console.log(userAttemps);
+            if (userAttemps.length == numOfNotMines) {
+                alert("Win! Hai fatto " + userAttemps.length + " tentativi.");
+            }
         } else if (mineLocations.includes(userAttemp)) {
             document.getElementById('bomb').play();
-            alert("boom! Hai fatto " + userAttemps.length + "tentativi.");
-            break
-        } else if (userAttemps.length == numOfNotMines) {
-            alert("Win!");
-            break
+            alert("boom! Hai fatto " + userAttemps.length + " tentativi.");
+            var boom = true;
         } else {
             userAttemp = alert("Hai già inserito questo numero. Inserisci un altro numero da 1 a 100");
-
         }
-
     } else {
         userAttemp = alert("Non è un inserimento valido, ritenta. Inserisci un altro numero da 1 a 100");
     }
