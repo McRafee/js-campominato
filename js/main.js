@@ -40,7 +40,7 @@ var mineLocations = [];
 var numOfMines = 16;
 var numOfNotMines = numOfLocations - numOfMines;
 
-while (mineLocations.length <= numOfMines) {
+while (mineLocations.length < numOfMines) {
     var mine = numRandomMinMax(1, numOfLocations);
     //console.log(mine); //debug
     if (!mineLocations.includes(mine)) {
